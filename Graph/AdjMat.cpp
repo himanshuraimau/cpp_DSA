@@ -3,7 +3,7 @@
 
 using namespace std;
 
-/*
+
 // Adjacency Matrix
 //Undirected Unwerighted Graph
 
@@ -32,8 +32,6 @@ int main(){
     }
 
 }
-*/
-
 
 /*
 // Adjacency Matrix
@@ -69,8 +67,8 @@ int main(){
 
 /*
 
-// Adjacency Matrix
-//directed Graph
+Adjacency Matrix
+directed Graph
 
 int main(){
 
