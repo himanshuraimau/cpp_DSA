@@ -18,34 +18,31 @@ SO CORRECT SORTING ->>>>>>>> 5 4 2 3 1 0 AND ALSO 4 5 2 3 1 0
 
 */
 
-	void dfs(int node,int vis[],stack<int>&st,vector<int>adj[]){
-         vis[node]=1;
-         for(auto it: adj[node]){
-             if(!vis[it]) dfs(it,vis,st,adj);
-         }
-         st.push(node);
-     }
-     
-	vector<int> topoSort(int V, vector<int> adj[]) 
-	{
-	    int vis[V]={0};
-	    stack<int> st;
-	    for(int i=0;i<V;i++){
-	        if(!vis[i]){
-	            dfs(i,vis,st,adj);
-	        }
-	    }
-	    vector<int>ans;
-	    while(!st.empty()){
-	        ans.push_back(st.top());
-	        st.pop();
-	    }
-	    return ans;
-	}
+	void dfs(int node, vector<int>& vis, stack<int>& st, vector<int> adj[]) {
+    vis[node] = 1;
+    for(auto it: adj[node]) {
+        if(!vis[it]) dfs(it, vis, st, adj);
+    }
+    st.push(node);
+}
 
+vector<int> topoSort(int V, vector<int> adj[]) 
+{
+    vector<int> vis(V, 0);
+    stack<int> st;
+    for(int i = 0; i < V; i++) {
+        if(!vis[i]) {
+            dfs(i, vis, st, adj);
+        }
+    }
+    vector<int> ans;
+    while(!st.empty()) {
+        ans.push_back(st.top());
+        st.pop();
+    }
+    return ans;
+}
 
-
-// Assuming the topoSort and dfs functions are defined above
 
 int main() {
     int V, E;
